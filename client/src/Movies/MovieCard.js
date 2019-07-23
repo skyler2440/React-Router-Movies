@@ -1,12 +1,9 @@
-import React from 'react';
-import MovieList from "../Movies/MovieList"
-import Movie from "../Movies/Movie"
-function MovieCard({ title, director, metascore, stars }) {
-  console.log('moviecard', title)
-  
-  return (
+import React from "react";
 
-<div className="movie-card">
+function MovieCard({ title, director, metascore, stars }) {
+
+  return (
+    <div className="movie-card">
       <h2>{title}</h2>
       <div className="movie-director">
         Director: <em>{director}</em>
@@ -22,11 +19,7 @@ function MovieCard({ title, director, metascore, stars }) {
         </div>
       ))}
     </div>
-  
   );
-  
-   
-
 }
 
 export default MovieCard;
