@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import "../App.css"
 import MovieCard from './MovieCard';
 
@@ -26,9 +26,9 @@ const MovieList = props => {
     
     <div className="movie-list">
       {movies.map(movie => (
-        <Link className='link' to={`/movies/${movie.id}`} key={`/movies/${movie.id}`}>
+        <NavLink className='link' to={`/movies/${movie.id}`} key={`/movies/${movie.id}`}>
         <MovieCard key={movie.id} movie={movie} title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.stars} />
-        </Link>
+        </NavLink>
       ))}
     </div>
   );
