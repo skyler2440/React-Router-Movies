@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList'
 import Movie from './Movies/Movie'
+import MovieCard from './Movies/MovieCard';
 const App = () => {
   const [savedList, setSavedList] = useState( [] );
 
@@ -16,8 +17,14 @@ const App = () => {
       <div>
       
         <Switch>
-          <Route exact path="/" component={MovieList} />
-          <Route exact path="/movies/:id" component={Movie} />
+          <Route exact path="/movies/:id" render={(props) => {
+            console.log('movie props', props)
+          return <Movie {...props} movieList={MovieCard} />}} />
+          <Route exact path="/" render={(props) => {
+            console.log('home props', props)
+          return <MovieList {...props} movieList={MovieCard} />}} />
+          {/* <Route exact path="/card" component={MovieCard} /> */}
+
         </Switch>
       
       </div>
