@@ -26,6 +26,7 @@ const App = () => {
                   movieList={MovieCard}
                   addToSavedList={addToSavedList}
                 />
+                // changed to a render prop and pushed props to the moviecard and pushed addToSavedList to movie
               );
             }}
           />
@@ -34,6 +35,7 @@ const App = () => {
             path="/"
             render={props => {
               return <MovieList {...props} movieList={MovieCard} />;
+              // changed to a render prop and pushed props to the moviecard for the movielist
             }}
           />
         </Switch>

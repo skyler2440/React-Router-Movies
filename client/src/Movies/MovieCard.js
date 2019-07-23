@@ -1,6 +1,7 @@
 import React from "react";
 
-function MovieCard({ movie, title, director, metascore, stars, button }) {
+function MovieCard({ title, director, metascore, stars, button }) {
+  //passed in the props from movies and movielist
   return (
     <div className="save-wrapper">
       <div className="movie-card">
@@ -21,6 +22,7 @@ function MovieCard({ movie, title, director, metascore, stars, button }) {
       </div>
       {button}
     </div>
+    // returned the button from the movie component so that it would not show on the list
   );
 }
 

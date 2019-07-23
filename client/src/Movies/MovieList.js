@@ -38,6 +38,7 @@ const MovieList = props => {
             stars={movie.stars}
           />
         </NavLink>
+        // Changed link to a navlink passed the props to moviecard for the list
       ))}
     </div>
   );

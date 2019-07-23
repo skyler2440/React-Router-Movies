@@ -11,6 +11,7 @@ const SavedList = props => {
       <NavLink className="link" to="/">
         <div className="home-button">Home</div>
       </NavLink>
+      {/* changed links to navlinks */}
     </div>
   );
 };

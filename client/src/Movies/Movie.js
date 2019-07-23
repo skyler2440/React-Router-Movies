@@ -6,8 +6,7 @@ const Movie = props => {
 
   useEffect(() => {
     const id = props.match.params.id;
-    // change ^^^ that line and grab the id from the URL
-    // You will NEED to add a dependency array to this effect hook
+    // used match id to get the id from the MovieCard
 
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
@@ -19,11 +18,11 @@ const Movie = props => {
       });
   }, [props.match.params.id]);
 
-  // Uncomment this only when you have moved on to the stretch goals
   const saveMovie = () => {
     const addToSavedList = props.addToSavedList;
     addToSavedList(movie);
   };
+//uncommented this
 
   if (!movie) {
     return <div>Loading movie information...</div>;
@@ -41,7 +40,9 @@ const Movie = props => {
           </button>
         }
       />
-    );
+// Took out the html and passed these items down as props to the moviecard component
+// Passed the button down as props to the moviecard page so that it wouldn't show on the list
+      );
   }
 };
 
