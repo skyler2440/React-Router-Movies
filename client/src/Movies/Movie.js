@@ -20,20 +20,26 @@ const Movie = props => {
   }, [props.match.params.id]);
 
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    const addToSavedList = props.addToSavedList;
+    addToSavedList(movie);
+  };
 
   if (!movie) {
     return <div>Loading movie information...</div>;
   } else {
     return (
       <MovieCard
+        movie={movie}
         title={movie.title}
         director={movie.director}
         metascore={movie.metascore}
         stars={movie.stars}
+        button={
+          <button className="save-button" onClick={saveMovie}>
+            Save
+          </button>
+        }
       />
     );
   }
