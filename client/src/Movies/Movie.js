@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 const Movie = props => {
+console.log("TCL moive: props", props)
   const [movie, setMovie] = useState();
 
   useEffect(() => {
@@ -22,6 +23,17 @@ const Movie = props => {
     const addToSavedList = props.addToSavedList;
     addToSavedList(movie);
   };
+
+  const deleteMovie = e => {
+    const id = props.match.params.id;
+    e.preventDefault();
+    axios
+    .delete(`http://localhost:5000/api/movies/${id}`)
+      .then(res => {
+        props.history.push('/')
+      })
+      .catch(err => console.log(err.response));
+  };
 //uncommented this
 
   if (!movie) {
@@ -35,9 +47,17 @@ const Movie = props => {
         metascore={movie.metascore}
         stars={movie.stars}
         button={
+          <>
           <button className="save-button" onClick={saveMovie}>
             Save
           </button>
+          <button className="update-button">
+          Update
+        </button>
+        <button className="delete-button" onClick={deleteMovie} >
+          Delete
+        </button>
+        </>
         }
       />
 // Took out the html and passed these items down as props to the moviecard component

@@ -1,6 +1,7 @@
 import React from "react";
 
 function MovieCard({ title, director, metascore, stars, button }) {
+  console.log("TCL: MovieCard -> title, director, metascore, stars, button", title, director, metascore, stars, button)
   //passed in the props from movies and movielist
   return (
     <div className="save-wrapper">

@@ -5,6 +5,7 @@ import "../App.css";
 import MovieCard from "./MovieCard";
 
 const MovieList = props => {
+console.log("TCL movielist: props", props)
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const getMovies = () => {
