@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import UpdateForm from './UpdateForm'
+import {Link, Route} from 'react-router-dom'
 const Movie = props => {
 console.log("TCL moive: props", props)
   const [movie, setMovie] = useState();
@@ -34,12 +36,14 @@ console.log("TCL moive: props", props)
       })
       .catch(err => console.log(err.response));
   };
-//uncommented this
-
+  
+  //uncommented this
+  
   if (!movie) {
     return <div>Loading movie information...</div>;
   } else {
     return (
+      <>
       <MovieCard
         movie={movie}
         title={movie.title}
@@ -48,19 +52,36 @@ console.log("TCL moive: props", props)
         stars={movie.stars}
         button={
           <>
-          <button className="save-button" onClick={saveMovie}>
+          <Link className="save-button" onClick={saveMovie}>
             Save
-          </button>
-          <button className="update-button">
-          Update
-        </button>
-        <button className="delete-button" onClick={deleteMovie} >
+          </Link>
+         <Link className="delete-button" onClick={deleteMovie} >
           Delete
-        </button>
+        </Link>
         </>
         }
-      />
-// Took out the html and passed these items down as props to the moviecard component
+        />
+      <div className='movie-update'>
+          <form>
+            <input type='text'
+            name='title'
+            value={movie.title}/>
+            <input type='text'
+            name='title'
+            value={movie.director}/>
+            <input type='text'
+            name='title'
+            value={movie.metascore}/>
+            {movie.stars.map(star => (
+              <input type='text'
+              name='title'
+              value={star}/>
+            ))}          
+            <button type='submit'>Submit</button>  
+          </form>
+
+     </div>
+      </>
 // Passed the button down as props to the moviecard page so that it wouldn't show on the list
       );
   }

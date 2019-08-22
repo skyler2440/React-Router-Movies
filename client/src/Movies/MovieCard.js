@@ -1,28 +1,30 @@
 import React from "react";
-
-function MovieCard({ title, director, metascore, stars, button }) {
-  console.log("TCL: MovieCard -> title, director, metascore, stars, button", title, director, metascore, stars, button)
+import {Link , Route} from 'react-router-dom';
+function MovieCard(props) {
   //passed in the props from movies and movielist
   return (
+    <>
     <div className="save-wrapper">
       <div className="movie-card">
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         <div className="movie-director">
-          Director: <em>{director}</em>
+          Director: <em>{props.director}</em>
         </div>
         <div className="movie-metascore">
-          Metascore: <strong>{metascore}</strong>
+          Metascore: <strong>{props.metascore}</strong>
         </div>
         <h3>Actors</h3>
 
-        {stars.map(star => (
+        {props.stars.map(star => (
           <div key={star} className="movie-star">
             {star}
           </div>
         ))}
       </div>
-      {button}
-    </div>
+      {props.button}
+      </div>
+     
+     </>
     // returned the button from the movie component so that it would not show on the list
   );
 }

@@ -4,6 +4,8 @@ import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 import MovieCard from "./Movies/MovieCard";
+import UpdateForm from './Movies/UpdateForm'
+
 const App = () => {
   const [savedList, setSavedList] = useState([]);
 
@@ -39,6 +41,7 @@ const App = () => {
               // changed to a render prop and pushed props to the moviecard for the movielist
             }}
           />
+           
         </Switch>
       </div>
     </div>
